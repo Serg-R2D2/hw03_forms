@@ -24,6 +24,7 @@ def group_posts(request, slug):
 
 
 def new_post(request): 
+    """Сохраняет новый пост после валидации формы"""
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
