@@ -1,19 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Добавить запись{% endblock %}
-
+{% block title %}Добавить запись{% endblock %} <!--Прошу объяснить, как выровнять заголовок по центру в форме-->
 {% block content %}
-<body>
-    <h1>Новая запись</h1>
-    <p class="lead">
-      Добавление новой записи
-    </p>
-  
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-        <input type="submit" value="Опубликовать">
-        </form>
-  
-</body>
 
+<div class="row justify-content-center">
+  <div class="col-md-8 p-5">
+      <div class="card">
+          <div class="card-header">Новая запись</div>
+          <div class="card-body">
+            <form method="post"> <!--Прошу объяснить, как перенести лейбл поля в верхний правый угол-->
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">
+                Добавить новую запись <!--Прошу объяснить, как выровнять кнопку по центру в форме-->
+              </button>
+            </form>
+          </div> <!-- card body -->
+      </div> <!-- card -->
+  </div> <!-- col -->
+</div> <!-- row -->
 {% endblock %}

@@ -25,12 +25,13 @@ def group_posts(request, slug):
 
 def new_post(request): 
     """Сохраняет новый пост после валидации формы"""
-    if request.method == 'POST':
-        form = PostForm(request.POST)
+    if request.method == 'POST': 
+        form = PostForm(request.POST) 
         if form.is_valid():
-            form = form.save(commit=False)
-            form.author = request.user
-            form.save()
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
             return redirect('index')
+        return render(request, 'new_post.html', {'form': form})
     form = PostForm()
     return render(request, 'new_post.html', {'form': form})
