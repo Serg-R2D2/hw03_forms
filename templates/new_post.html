@@ -7,6 +7,7 @@
       <div class="card">
           <div class="card-header">Новая запись</div>
           <div class="card-body">
+<<<<<<< HEAD
             <form method="post">
                     {% csrf_token %}
 
@@ -28,6 +29,15 @@
                             </button>
                     </div>
                 </form>
+=======
+            <form method="post"> <!--Прошу объяснить, как перенести лейбл поля в верхний левый угол-->
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary">
+                Добавить новую запись <!--Прошу объяснить, как выровнять кнопку по центру в форме-->
+              </button>
+            </form>
+>>>>>>> 92a73ce14e1824c8345722fd99bba6b87f8d408d
           </div> <!-- card body -->
       </div> <!-- card -->
   </div> <!-- col -->
