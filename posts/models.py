@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
+
 from django.db import models
 
-from django.contrib.auth import get_user_model
 
 
 User = get_user_model()
@@ -21,7 +22,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    text = models.TextField('Содержание', blank=True, null=True)
+    text = models.TextField('Содержание', blank=False, null=True)
     pub_date = models.DateTimeField('Опубликовано', auto_now_add=True)
     author = models.ForeignKey(
         User, 

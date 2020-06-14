@@ -1,13 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Post, Group
 
 from .forms import PostForm
 
-from django.contrib.auth import get_user_model
-
-
-User = get_user_model()
 
 
 def index(request):
@@ -23,6 +21,7 @@ def group_posts(request, slug):
     return render(request, "group.html", {"group": group, "posts": posts})
 
 
+@login_required
 def new_post(request): 
     """Сохраняет новый пост после валидации формы"""
     if request.method == 'POST': 
